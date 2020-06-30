@@ -1,10 +1,8 @@
-# Video.js Transcript
+# video-transcript-click
 
 Creates interactive transcripts from text tracks.
 
-## Alpha Release 3
-
-Please report any issues or feature requests on the tracker. Thank you!
+**[Live Demostration](https://tombyrer.github.io/videojs-transcript-click/demo/index.html)**
 
 ## Getting Started
 
@@ -22,7 +20,8 @@ Once you've added the plugin script to your page, you can use it with any video:
 </video>
 <div id="transcript"></div>
 <script>
-    var video = videojs('video').ready(function(){
+    var video = videojs('video')
+    video.ready(function(){
       // Set up any options.
       var options = {
         showTitle: false,
@@ -34,17 +33,28 @@ Once you've added the plugin script to your page, you can use it with any video:
 
       // Then attach the widget to the page.
       var transcriptContainer = document.querySelector('#transcript');
-      transcriptContainer.appendChild(transcript.el()); 
-    }); 
+      transcriptContainer.appendChild(transcript.el());
+    });
 </script>
 </body>
 ```
-There's also a [working example](https://walsh9.github.io/videojs-transcript/example.html) of the plugin you can check out if you're having trouble.
-
-You'll also want to include one of the css files. 
+You'll also want to include one of the css files.
 You can style the plugin as you like but there are a few examples in the /css folder to get you started.
 
+### CDN
+
+You can use [jsDelivr CDN](https://www.jsdelivr.com) like so:
+
+```html
+https://cdn.jsdelivr.net/gh/tombyrer/videojs-transcript-click@1.0/css/videojs-transcript.css
+
+https://cdn.jsdelivr.net/gh/tombyrer/videojs-transcript-click@1.0/dist/videojs-transcript-click.min.js
+```
+
 ## Documentation
+
+As you click on the transcrpt lines, the video will seek to the start time of said line.  However, it will not play if the video is currently stopped.
+
 ### Plugin Options
 
 You may pass in an options object to the plugin upon initialization. This
@@ -55,11 +65,13 @@ object may contain any of the following properties:
 
 Set to false to disable autoscrolling.
 
-#### scrollToCenter
-**Default:** false
+#### ~~scrollToCenter~~
+~~**Default:** false~~
 
-By default current row shows on the bottom on autoscrolling. Set to true to show it in the center
- 
+~~By default current row shows on the bottom on autoscrolling. Set to true to show it in the center~~
+
+*REMOVED* for now; prevented it from working at all.  Open to PRs to re-add.
+
 #### clickArea
 **Default:** 'line'
 
@@ -96,6 +108,15 @@ Don't autoscroll the transcript when the user is trying to scroll it.
 Returns the DOM element containing the html transcript widget. You'll need to append this to your page.
 
 ## Release History
+
+##### 1.0.0: Video.js v7 compatibility
+
+* Forked from [walsh9 /
+videojs-transcript](https://github.com/walsh9/videojs-transcript)
+* Works on Video.js v7.8+
+* Removed scrollToCenter; could not get it to work right away
+* Removed build tools & source; tooling was 5+ years old
+* Removed .min file; most build tools will minify for you
 
 ##### 0.8.0: Alpha Release 3
 

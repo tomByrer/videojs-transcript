@@ -1,3 +1,9 @@
-dist/
+.DS_Store
+*.log
+.vscode/
+node_modules/
+build/
+.sublime-*
+demo/
 test/
 *~
