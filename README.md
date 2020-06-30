@@ -46,9 +46,9 @@ You can style the plugin as you like but there are a few examples in the /css fo
 You can use [jsDelivr CDN](https://www.jsdelivr.com) like so:
 
 ```html
-https://cdn.jsdelivr.net/gh/tombyrer/videojs-transcript-click@1.0/css/videojs-transcript.css
+<link href="https://cdn.jsdelivr.net/gh/tombyrer/videojs-transcript-click@0.8/css/videojs-transcript.css" title="CDN" rel="stylesheet">
 
-https://cdn.jsdelivr.net/gh/tombyrer/videojs-transcript-click@1.0/dist/videojs-transcript-click.min.js
+<script src="https://cdn.jsdelivr.net/gh/tombyrer/videojs-transcript-click@1.0/dist/videojs-transcript-click.min.js"></script>
 ```
 
 ## Documentation

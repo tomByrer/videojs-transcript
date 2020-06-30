@@ -5,9 +5,11 @@
   <meta charset="utf-8">
   <title>Video.js Transcript</title>
   <link href="https://vjs.zencdn.net/7.8.3/video-js.css" rel="stylesheet" />
-  <link href="/css/videojs-transcript.css" title="Example 1" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/tombyrer/videojs-transcript-click@0.8/css/videojs-transcript.css" title="CDN" rel="stylesheet">
+  <!-- local dev: -->
+  <!-- <link href="/css/videojs-transcript.css" title="Example 1" rel="stylesheet">
   <link href="/css/videojs-transcript2.css" title="Example 2" rel="alternate stylesheet">
-  <link href="/css/videojs-transcript3.css" title="Example 3" rel="alternate stylesheet">
+  <link href="/css/videojs-transcript3.css" title="Example 3" rel="alternate stylesheet"> -->
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -24,7 +26,9 @@
     }
   </style>
   <script src="https://vjs.zencdn.net/7.8.3/video.js"></script>
-  <script src="/dist/videojs-transcript-click.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/tombyrer/videojs-transcript-click@1.0/dist/videojs-transcript-click.min.js"></script>
+  <!-- local dev: -->
+  <!-- <script src="/dist/videojs-transcript-click.js"></script> -->
   </head>
 
   <body>
@@ -45,11 +49,17 @@
       </p>
       <source src="https://www.openbeelden.nl/files/92/104105.ed_hd.webm" type="video/webm">
       <source src="https://www.openbeelden.nl/files/92/104101.ed_hd.mp4" type="video/mp4">
-      <track kind="captions" src="captions.en.vtt" srclang="en" label="English" default>
+      <track kind="captions" src="https://cdn.jsdelivr.net/gh/tombyrer/videojs-transcript-click@1.0/demo/captions.en.vtt" srclang="en" label="English" default>
+      <track kind="captions" src="https://cdn.jsdelivr.net/gh/tombyrer/videojs-transcript-click@1.0/demo/captions.sv.vtt" srclang="sv" label="Swedish">
+      <track kind="captions" src="https://cdn.jsdelivr.net/gh/tombyrer/videojs-transcript-click@1.0/demo/captions.ru.vtt" srclang="ru" label="Russian">
+      <track kind="captions" src="https://cdn.jsdelivr.net/gh/tombyrer/videojs-transcript-click@1.0/demo/captions.ja.vtt" srclang="ja" label="Japanese">
+      <track kind="captions" src="https://cdn.jsdelivr.net/gh/tombyrer/videojs-transcript-click@1.0/demo/captions.ar.vtt" srclang="ar" label="Arabic">
+      <!-- local dev: -->
+      <!-- <track kind="captions" src="captions.en.vtt" srclang="en" label="English" default>
       <track kind="captions" src="captions.sv.vtt" srclang="sv" label="Swedish">
       <track kind="captions" src="captions.ru.vtt" srclang="ru" label="Russian">
       <track kind="captions" src="captions.ja.vtt" srclang="ja" label="Japanese">
-      <track kind="captions" src="captions.ar.vtt" srclang="ar" label="Arabic">
+      <track kind="captions" src="captions.ar.vtt" srclang="ar" label="Arabic"> -->
     </video>
     <div id="transcript"></div>
   </div>
