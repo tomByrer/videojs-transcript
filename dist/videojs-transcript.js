@@ -1,5 +1,5 @@
-/*! videojs-transcript - v0.8.1 - 2017-04-21
-* Copyright (c) 2017 Matthew Walsh; Licensed MIT */
+/*! videojs-transcript - v1.0.0 - alpha
+* (c) 2015 Matthew Walsh, changes (c) 2020 Tom Byrer; Licensed MIT */
 (function (window, videojs) {
   'use strict';
 
@@ -97,7 +97,6 @@ var defaults = {
   showTitle: true,
   showTrackSelector: true,
   followPlayerTrack: true,
-  scrollToCenter: false,
   stopScrollWhenInUse: true,
 };
 
@@ -247,21 +246,17 @@ var scrollerProto = function(plugin) {
       var elementOffsetBottom = element.offsetTop + element.clientHeight;
       var relTop = element.offsetTop - parent.offsetTop;
       var relBottom = (element.offsetTop + element.clientHeight) - parent.offsetTop;
-      var centerPosCorrection = 0;
       var newPos;
 
-      if (plugin.settings.scrollToCenter){
-        centerPosCorrection = Math.round(parent.clientHeight/2 - element.clientHeight/2);
-      }
       // If the top of the line is above the top of the parent view, were scrolling up,
       // so we want to move the top of the element downwards to match the top of the parent.
-      if (relTop < parent.scrollTop + centerPosCorrection) {
-        newPos = element.offsetTop - parent.offsetTop -centerPosCorrection;
+      if (relTop < parent.scrollTop) {
+        newPos = element.offsetTop - parent.offsetTop;
 
       // If the bottom of the line is below the parent view, we're scrolling down, so we want the
       // bottom edge of the line to move up to meet the bottom edge of the parent.
-      } else if (relBottom > (parent.scrollTop + parent.clientHeight) - centerPosCorrection) {
-        newPos = elementOffsetBottom - parentOffsetBottom + centerPosCorrection;
+      } else if (relBottom > (parent.scrollTop + parent.clientHeight)) {
+        newPos = elementOffsetBottom - parentOffsetBottom;
       }
 
       // Don't try to scroll if we haven't set a new position.  If we didn't
@@ -376,7 +371,6 @@ var widget = function (plugin) {
     var timestamp = utils.createEl('span', '-timestamp');
     var text = utils.createEl('span', '-text');
     line.setAttribute('data-begin', cue.startTime);
-    line.setAttribute('tabindex', my._options.tabIndex || 0);
     timestamp.textContent = utils.secondsToTime(cue.startTime);
     text.innerHTML = cue.text;
     line.appendChild(timestamp);
@@ -416,9 +410,8 @@ var widget = function (plugin) {
     }
 
   };
-  var create = function (options) {
+  var create = function () {
     var el = document.createElement('div');
-    my._options = options;
     my.element = el;
     el.setAttribute('id', plugin.prefix + '-' + plugin.player.id());
     if (plugin.settings.showTitle) {
@@ -479,7 +472,7 @@ var transcript = function (options) {
   my.validTracks = trackList.get();
   my.currentTrack = trackList.active(my.validTracks);
   my.settings = videojs.mergeOptions(defaults, options);
-  my.widget = widget.create(options);
+  my.widget = widget.create();
   var timeUpdate = function () {
     my.widget.setCue(my.player.currentTime());
   };
@@ -504,6 +497,6 @@ var transcript = function (options) {
     setTrack: my.widget.setTrack
   };
 };
-videojs.plugin('transcript', transcript);
+videojs.registerPlugin('transcript', transcript);
 
 }(window, videojs));

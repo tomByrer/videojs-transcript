@@ -1,10 +1,10 @@
+
 <!doctype html>
 <html>
 <head>
   <meta charset="utf-8">
   <title>Video.js Transcript</title>
-
-  <link href="//vjs.zencdn.net/5.6.0/video-js.css" rel="stylesheet">
+  <link href="https://vjs.zencdn.net/7.8.3/video-js.css" rel="stylesheet" />
   <link href="css/videojs-transcript.css" title="Example 1" rel="stylesheet">
   <link href="css/videojs-transcript2.css" title="Example 2" rel="alternate stylesheet">
   <link href="css/videojs-transcript3.css" title="Example 3" rel="alternate stylesheet">
@@ -23,9 +23,10 @@
       margin: 40px auto;
     }
   </style>
-  <script src="//vjs.zencdn.net/5.6.0/video.js"></script>
+  <script src="https://vjs.zencdn.net/7.8.3/video.js"></script>
   <script src="dist/videojs-transcript.js"></script>
   </head>
+
   <body>
   <div class="info">
     <p>
@@ -53,7 +54,8 @@
     <div id="transcript"></div>
   </div>
   <script>
-      var video = videojs('video').ready(function(){
+      var video = videojs('video')
+      video.ready(function(){
 
           // fire up the plugin
           var transcript = this.transcript();

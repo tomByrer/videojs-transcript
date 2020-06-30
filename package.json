@@ -1,15 +1,21 @@
 {
-  "name": "videojs-transcript",
-  "version": "0.8.1",
-  "author": "Matthew Walsh",
+  "name": "videojs-transcript-click",
   "description": "Creates interactive transcripts from text tracks.",
+  "version": "1.0.0",
+  "author": "Tom Byrer (https://github.com/tomByrer)",
+  "contributors": [
+    "Matthew Walsh (https://walsh9.online/)"
+  ],
+  "homepage": "https://github.com/tomByrer/videojs-transcript-click",
   "license": "MIT",
   "keywords": [
     "videojs",
     "html5",
-    "flash",
     "video",
-    "player"
+    "player",
+    "VTT",
+    "transcript",
+    "caption"
   ],
   "dependencies": {},
   "devDependencies": {
@@ -22,6 +28,6 @@
     "qunitjs": "^1.12"
   },
   "peerDependencies": {
-    "video.js": "^5.6.0"
+    "video.js": "^7.8.3"
   }
 }
